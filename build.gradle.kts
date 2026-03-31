@@ -1,5 +1,4 @@
 plugins {
-    //alias(libs.plugins.jgitver)
     alias(libs.plugins.spring.dependency.management)
     alias(libs.plugins.spring.boot) apply false
     alias(libs.plugins.sonarlint) apply false
@@ -7,6 +6,9 @@ plugins {
 }
 
 allprojects {
+    apply(plugin = "java")
+    apply(plugin = "io.spring.dependency-management")
+
     group = "ru.otus"
 
     repositories {
@@ -14,6 +16,9 @@ allprojects {
         mavenCentral()
     }
 
-
-    apply(plugin = "io.spring.dependency-management")
+    configure<JavaPluginExtension> {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(25))
+        }
+    }
 }
