@@ -1,0 +1,26 @@
+[versions]
+spring = "3.4.5"
+
+
+[libraries]
+commons-io = "commons-io:commons-io:2.18.0"
+commons-lang = "commons-lang:commons-lang:2.5"
+commons-logging = "commons-logging:commons-logging:1.1.1"
+guava = "com.google.guava:guava:33.4.0-jre"
+jackson-core-asl = "org.codehaus.jackson:jackson-core-asl:1.8.8"
+jackson-mapper-asl = "org.codehaus.jackson:jackson-mapper-asl:1.8.8"
+javax-servlet = "javax.servlet:servlet-api:2.5"
+protobuf-bom = "com.google.protobuf:protobuf-bom:4.30.2"
+spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring"}
+testcontainers-bom = "org.testcontainers:testcontainers-bom:1.21.0"
+
+[plugins]
+
+jgitver = "fr.brouillard.oss.gradle.jgitver:0.10.0-rc03"
+spring-dependency-management = "io.spring.dependency-management:1.1.7"
+spring-boot = { id = "org.springframework.boot", version.ref = "spring" }
+shadow = "com.gradleup.shadow:9.4.1"
+jib = "com.google.cloud.tools.jib:3.4.4"
+protobuf = "com.google.protobuf:0.9.5"
+sonarlint = "name.remal.sonarlint:6.0.0-rc-2"
+spotless = "com.diffplug.spotless:7.0.3"
