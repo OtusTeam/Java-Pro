@@ -5,3 +5,6 @@ plugins {
 rootProject.name = "test"
 
 include("L01-gradle")
+
+include("L02-GradleLogging")
+include("lib")
