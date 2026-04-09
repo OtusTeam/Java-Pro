@@ -20,5 +20,8 @@ class ApplicationStructureTest {
 
         assertNotNull(method);
         assertEquals(void.class, method.getReturnType());
+
+
+
     }
 }
