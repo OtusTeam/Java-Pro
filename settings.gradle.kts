@@ -6,5 +6,8 @@ rootProject.name = "test"
 
 include("L01-gradle")
 
-include("L02-GradleLogging")
-include("lib")
+//include("L02-GradleLogging")
+//include("lib")
+
+include("L20-hibernate")
+//include("L21-jpql")
