@@ -10,4 +10,4 @@ include("L01-gradle")
 //include("lib")
 
 include("L20-hibernate")
-//include("L21-jpql")
+include("L21-jpql:class-demo")

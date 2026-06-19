@@ -3,6 +3,7 @@ package ru.otus.mainops;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.hibernate.FlushMode;
 import static ru.otus.core.HibernateUtils.buildSessionFactory;
 import static ru.otus.core.HibernateUtils.doInSession;
 import static ru.otus.core.HibernateUtils.doInSessionWithTransaction;
@@ -32,6 +33,7 @@ class MainOperationsTest {
 
         sf = buildSessionFactory(OtusStudent.class, OtusTeacher.class, Avatar.class);
         sf.getStatistics().setStatisticsEnabled(true);
+        System.out.println("-----------");
     }
 
     @DisplayName("persist не вставляет сущность в БД без транзакции")
@@ -77,7 +79,7 @@ class MainOperationsTest {
             session.persist(student);
 
             // Отключаем dirty checking (одно из двух)
-            // session.setHibernateFlushMode(FlushMode.MANUAL);
+            //session.setHibernateFlushMode(FlushMode.MANUAL);
             // session.detach(student);
 
             student.setName(newName);

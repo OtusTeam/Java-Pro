@@ -53,6 +53,8 @@ class JpqlTest {
             var childCategory = new Category(0, "Child category #" + i, parentCategory);
             doInSessionWithTransaction(sf, session -> session.persist(childCategory));
         }
+
+        System.out.println("----------------");
     }
 
     @DisplayName(" должен загружать информацию о нужном студенте по его имени")
@@ -123,7 +125,7 @@ class JpqlTest {
             var query = session.createQuery("select s from OtusStudent s", OtusStudent.class);
             // var query = session.createQuery("select distinct s from OtusStudent s join
             // fetch s.emails", OtusStudent.class);
-            // query.setHint("jakarta.persistence.fetchgraph", entityGraph);
+            //query.setHint("jakarta.persistence.fetchgraph", entityGraph);
 
             var students = query.getResultList();
 
