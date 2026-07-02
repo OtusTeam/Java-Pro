@@ -12,6 +12,7 @@ jackson-core-asl = "org.codehaus.jackson:jackson-core-asl:1.8.8"
 jackson-mapper-asl = "org.codehaus.jackson:jackson-mapper-asl:1.8.8"
 javax-servlet = "javax.servlet:servlet-api:2.5"
 protobuf-bom = "com.google.protobuf:protobuf-bom:4.30.2"
+reflections = "org.reflections:reflections:0.10.2"
 spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring"}
 testcontainers-bom = "org.testcontainers:testcontainers-bom:1.21.0"
 
