@@ -10,7 +10,6 @@ import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -18,10 +17,9 @@ import ru.otus.domain.Client;
 import ru.otus.services.ClientService;
 
 @DisplayName("WithContextTest: REST-контроллер клиентов ")
-// @WebMvcTest(ClientRestController.class)
+//@WebMvcTest(ClientRestController.class)
 // @Import(value = {ClientServiceImpl.class, ClientIdGeneratorImpl.class, ClientRepositoryImpl.class})
 @SpringBootTest
-@AutoConfigureMockMvc
 class ClientRestControllerWithContextTest {
 
     @Autowired
