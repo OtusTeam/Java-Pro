@@ -9,10 +9,11 @@ public class ExecutorDemo {
 
     public static void main(String[] args) {
         var factory = Thread.ofVirtual().name("routine-", 0).factory();
-        try (var executor = Executors.newThreadPerTaskExecutor(factory)) {
-            executor.submit(() -> log.info("task-1, thread:{}", Thread.currentThread()));
-            executor.submit(() -> log.info("task-2, thread:{}", Thread.currentThread()));
-            executor.submit(() -> log.info("task-3, thread:{}", Thread.currentThread()));
+        try (var executor = Executors.newFixedThreadPool(10, factory)) {
+            for (int i = 0; i < 1000; i++) {
+                var no = i;
+                executor.submit(() -> log.info("task-{}, thread:{}", no, Thread.currentThread()));
+            }
         }
     }
 }

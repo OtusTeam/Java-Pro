@@ -24,7 +24,7 @@ public class Batch {
             thread.join();
         }
         log.info("carrierThreads.size():{}", carrierThreads.size());
-        log.info("carrierThreads:{}", carrierThreads);
+        log.info("carrierThreads: {} {}", carrierThreads.size(), carrierThreads);
     }
 
     private static String getCarrierThreadName(Thread thread) {

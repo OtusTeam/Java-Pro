@@ -17,22 +17,31 @@ public class JumpThread {
                 sleep(1);
             }
         });
+        var threadLocal = new ThreadLocal<Integer>();
+        //var scopedValue = ScopedValue.<Integer>newInstance();
         var iterationCounter = new AtomicLong(0);
         var thread = Thread.ofVirtual().start(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
-                iterationCounter.incrementAndGet();
-                var firstThread = Thread.currentThread().toString();
-                sleep(10);
-                var secondThread = Thread.currentThread().toString();
-                if (!Objects.equals(firstThread, secondThread)) {
-                    log.info("1_thread:{}", firstThread);
-                    log.info("2_thread:{}", secondThread);
-                    Thread.currentThread().interrupt();
+            threadLocal.set(1);
+            //ScopedValue.where(scopedValue, 42).run(() -> {
+                while (!Thread.currentThread().isInterrupted()) {
+                    //ScopedValue.where(scopedValue, 67).run(() -> {
+                        iterationCounter.incrementAndGet();
+                        var firstThread = Thread.currentThread().toString();
+                        sleep(10);
+                        var secondThread = Thread.currentThread().toString();
+                        if (!Objects.equals(firstThread, secondThread)) {
+                            log.info("1_thread:{}", firstThread);
+                      //      log.info("2_thread:{} {}", secondThread, scopedValue.get());
+                            Thread.currentThread().interrupt();
+                        }
+                    //});
+                //    log.info("{}", scopedValue.get());
                 }
-            }
+            //});
         });
         thread.join();
         log.info("iterationCounter:{}", iterationCounter);
+
     }
 
     private static void sleep(long ms) {

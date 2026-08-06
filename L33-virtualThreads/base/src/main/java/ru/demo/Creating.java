@@ -7,6 +7,7 @@ public class Creating {
     private static final Logger log = LoggerFactory.getLogger(Creating.class);
 
     public static void main(String[] args) throws InterruptedException {
+        //new X().start();
         log.info("begin");
         var threadPlatform = Thread.ofPlatform()
                 .start(() -> log.info(
@@ -20,5 +21,12 @@ public class Creating {
         threadPlatform.join();
         threadVirtual.join();
         log.info("end");
+    }
+
+    static class X extends Thread {
+        @Override
+        public void run() {
+            System.out.println("XXXX");
+        }
     }
 }
