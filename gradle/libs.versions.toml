@@ -2,6 +2,8 @@
 spring = "4.1.0"
 jetty="12.0.16"
 freemarker="2.3.34"
+protobuf = "4.33.4"
+grpc = "1.78.0"
 
 [libraries]
 commons-io = "commons-io:commons-io:2.18.0"
@@ -11,7 +13,13 @@ guava = "com.google.guava:guava:33.4.0-jre"
 jackson-core-asl = "org.codehaus.jackson:jackson-core-asl:1.8.8"
 jackson-mapper-asl = "org.codehaus.jackson:jackson-mapper-asl:1.8.8"
 javax-servlet = "javax.servlet:servlet-api:2.5"
-protobuf-bom = "com.google.protobuf:protobuf-bom:4.30.2"
+protobuf-java = { group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf" }
+protobuf-java-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobuf" }
+protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+protocgen-grpc-java = { group = "io.grpc", name = "protoc-gen-grpc-java", version.ref = "grpc" }
+grpc-netty = { group = "io.grpc", name = "grpc-netty", version.ref = "grpc" }
+grpc-protobuf = { group = "io.grpc", name = "grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { group = "io.grpc", name = "grpc-stub", version.ref = "grpc" }
 reflections = "org.reflections:reflections:0.10.2"
 spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring"}
 testcontainers-bom = "org.testcontainers:testcontainers-bom:1.21.0"
