@@ -9,6 +9,7 @@ grpc = "1.78.0"
 commons-io = "commons-io:commons-io:2.18.0"
 commons-lang = "commons-lang:commons-lang:2.5"
 commons-logging = "commons-logging:commons-logging:1.1.1"
+findbugs-jsr305 = "com.google.code.findbugs:jsr305:3.0.2" # TODO replace with https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-annotations
 guava = "com.google.guava:guava:33.4.0-jre"
 jackson-core-asl = "org.codehaus.jackson:jackson-core-asl:1.8.8"
 jackson-mapper-asl = "org.codehaus.jackson:jackson-mapper-asl:1.8.8"
@@ -20,9 +21,14 @@ protocgen-grpc-java = { group = "io.grpc", name = "protoc-gen-grpc-java", versio
 grpc-netty = { group = "io.grpc", name = "grpc-netty", version.ref = "grpc" }
 grpc-protobuf = { group = "io.grpc", name = "grpc-protobuf", version.ref = "grpc" }
 grpc-stub = { group = "io.grpc", name = "grpc-stub", version.ref = "grpc" }
+r2dbc-postgresql = "io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE"
 reflections = "org.reflections:reflections:0.10.2"
 spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring"}
 testcontainers-bom = "org.testcontainers:testcontainers-bom:1.21.0"
+webjars-socksjs = "org.webjars:sockjs-client:1.5.1"
+webjars-stomp = "org.webjars:stomp-websocket:2.3.4"
+webjars-bootstrap = "org.webjars:bootstrap:5.3.3"
+wiremock = "com.github.tomakehurst:wiremock-standalone:3.0.1" # TODO replace with https://mvnrepository.com/artifact/org.wiremock/wiremock-standalone
 
 
 [plugins]
