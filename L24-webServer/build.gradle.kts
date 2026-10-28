@@ -1,8 +1,3 @@
-plugins {
-    alias(libs.plugins.spring.boot)
-    alias(libs.plugins.spring.dependency.management)
-}
-
 val jetty = libs.versions.jetty.get()
 val freemarker = libs.versions.freemarker.get()
 

@@ -1,8 +1,6 @@
 import com.google.protobuf.gradle.id
 
 plugins {
-  alias(libs.plugins.spring.boot)
-  alias(libs.plugins.spring.dependency.management)
   alias(libs.plugins.protobuf)
 }
 

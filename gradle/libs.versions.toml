@@ -4,8 +4,11 @@ jetty="12.0.16"
 freemarker="2.3.34"
 protobuf = "4.33.4"
 grpc = "1.78.0"
+lombok = "1.18.48"
+freefair-lombok = "9.8.2"
 
 [libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 commons-io = "commons-io:commons-io:2.18.0"
 commons-lang = "commons-lang:commons-lang:2.5"
 commons-logging = "commons-logging:commons-logging:1.1.1"
@@ -41,3 +44,4 @@ jib = "com.google.cloud.tools.jib:3.4.4"
 protobuf = "com.google.protobuf:0.9.5"
 sonarlint = "name.remal.sonarlint:6.0.0-rc-2"
 spotless = "com.diffplug.spotless:7.0.3"
+lombok = { id = "io.freefair.lombok", version.ref = "freefair-lombok" }

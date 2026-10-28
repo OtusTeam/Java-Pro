@@ -5,8 +5,11 @@ import java.lang.management.ManagementFactory;
 import java.util.Arrays;
 import javax.management.*;
 import javax.management.openmbean.CompositeData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /*
 О формате логов
@@ -34,12 +37,12 @@ VM options:
     -XX:MaxGCPauseMillis=10
 */
 
-public class GcDemo {
-    private static final Logger logger = LoggerFactory.getLogger(GcDemo.class);
+@Slf4j
+public @Data class GcDemo {
     private volatile int objectArraySize = 5 * 1000 * 1000;
 
-    public static void main(String... args) throws Exception {
-        logger.info("Starting pid: {}", ManagementFactory.getRuntimeMXBean().getName());
+    static void main() throws Exception {
+        log.info("Starting pid: {}", ManagementFactory.getRuntimeMXBean().getName());
 
         GcDemo gcDemo = new GcDemo();
 
@@ -49,18 +52,10 @@ public class GcDemo {
         gcDemo.run();
     }
 
-    public int getObjectArraySize() {
-        return objectArraySize;
-    }
-
-    public void setObjectArraySize(int objectArraySize) {
-        this.objectArraySize = objectArraySize;
-    }
-
     private void run() throws InterruptedException {
         long beginTime = System.currentTimeMillis();
         createObject();
-        logger.info("time:{}", (System.currentTimeMillis() - beginTime) / 1000);
+        log.info("time:{}", (System.currentTimeMillis() - beginTime) / 1000);
     }
 
     private void createObject() throws InterruptedException {
@@ -74,7 +69,7 @@ public class GcDemo {
             for (var elem : array) {
                 sum += elem;
             }
-            logger.trace("array sum:{}", sum);
+            log.trace("array sum:{}", sum);
         }
     }
 
@@ -91,7 +86,7 @@ public class GcDemo {
     private static void switchOnMonitoring() {
         var gcbeans = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
         for (var gcbean : gcbeans) {
-            logger.info("GC name:{}", gcbean.getName());
+            log.info("GC name:{}", gcbean.getName());
             var emitter = (NotificationEmitter) gcbean;
             NotificationListener listener = (notification, handback) -> {
                 var info = GarbageCollectionNotificationInfo.from((CompositeData) notification.getUserData());
@@ -102,7 +97,7 @@ public class GcDemo {
                 var startTime = info.getGcInfo().getStartTime();
                 var duration = info.getGcInfo().getDuration();
 
-                logger.info(
+                log.info(
                         "start:{}, Name:{}, action:{}, gcCause:{}  {}(ms)",
                         startTime,
                         gcName,

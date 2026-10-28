@@ -7,44 +7,43 @@ package ru.otus.gc;
 -XX:+UseG1GC
 */
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SuppressWarnings({"java:S1144", "java:S125"})
 public class Boxing {
-    private static final Logger log = LoggerFactory.getLogger(Boxing.class);
 
-    public static void main(String[] args) throws InterruptedException {
-        calcInteger();
-        // calcInt();
-        log.info("done");
+  static void main() throws InterruptedException {
+    calcInteger();
+    // calcInt();
+    log.info("done");
+  }
+
+  private static void calcInteger() throws InterruptedException {
+    int limit = Integer.MAX_VALUE;
+    Integer counter = 0;
+    for (int idx = 0; idx < limit; idx++) {
+
+      counter += 1;
+
+      if (idx % 1_000_000 == 0) {
+        Thread.sleep(1000);
+      }
     }
+    log.info("counter_Integer:{}", counter);
+  }
 
-    private static void calcInteger() throws InterruptedException {
-        int limit = Integer.MAX_VALUE;
-        Integer counter = 0;
-        for (int idx = 0; idx < limit; idx++) {
+  private static void calcInt() throws InterruptedException {
+    int limit = Integer.MAX_VALUE;
+    int counter = 0;
+    for (int idx = 0; idx < limit; idx++) {
 
-            counter += 1;
+      counter += 1;
 
-            if (idx % 1_000_000 == 0) {
-                Thread.sleep(1000);
-            }
-        }
-        log.info("counter_Integer:{}", counter);
+      if (idx % 1_000_000 == 0) {
+        Thread.sleep(1000);
+      }
     }
-
-    private static void calcInt() throws InterruptedException {
-        int limit = Integer.MAX_VALUE;
-        int counter = 0;
-        for (int idx = 0; idx < limit; idx++) {
-
-            counter += 1;
-
-            if (idx % 1_000_000 == 0) {
-                Thread.sleep(1000);
-            }
-        }
-        log.info("counter_int:{}", counter);
-    }
+    log.info("counter_int:{}", counter);
+  }
 }
