@@ -12,6 +12,7 @@ include("L01-gradle")
 include("L08-gc:demo")
 include("L08-gc:homework")
 
+include("L10-bytecode")
 include("L20-hibernate")
 include("L21-jpql:class-demo")
 include("L24-webServer")
