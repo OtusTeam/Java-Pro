@@ -37,7 +37,7 @@ public class RabbitMqListeners {
         rabbitMqService.sendClientApprovedEvent(client);
 
         // Для ackMode = "AUTO" и перехода в dead letter exchange
-        throw new AmqpRejectAndDontRequeueException("Ooops");
+        // throw new AmqpRejectAndDontRequeueException("Ooops");
     }
 
     @RabbitListener(queues = "all-clients-events-queue")
