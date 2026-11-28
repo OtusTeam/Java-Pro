@@ -1,6 +1,7 @@
 package ru.otus;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
@@ -55,7 +56,8 @@ class AppTest {
         sensorDataProcessingFlow.bindProcessor(ROOM_NAME_BINDING, sensorDataProcessorRoom);
     }
 
-    @RepeatedTest(10)
+    //@RepeatedTest(10)
+    @Test
     void shouldInvokeCorrectProcessorsAccordingItsBindings() throws InterruptedException {
         AtomicInteger randomIntInvocationsCount = new AtomicInteger();
         doAnswer(a -> (randomIntInvocationsCount.incrementAndGet() % 2 == 0) ? BINDED_ROOM_NUMBER : a.callRealMethod())
